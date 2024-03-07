@@ -98,7 +98,7 @@ class _SectionTextAndImageInputState extends State<SectionTextAndImageInput> {
           onClickCamera: () async {
             // Capture a photo.
             final XFile? photo =
-                await picker.pickImage(source: ImageSource.camera);
+                await picker.pickImage(source: ImageSource.camera, imageQuality:30);
 
             if (photo != null) {
               photo.readAsBytes().then((value) => setState(() {

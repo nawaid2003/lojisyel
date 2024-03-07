@@ -63,7 +63,7 @@ class _SectionStreamChatState extends State<SectionStreamChat> {
             if (controller.text.isNotEmpty) {
               final searchedText = controller.text;
               chats.add(
-                  Content(role: 'User', parts: [Parts(text: searchedText)]));
+                  Content(role: 'user', parts: [Parts(text: searchedText)]));
               controller.clear();
               loading = true;
 
@@ -76,7 +76,7 @@ class _SectionStreamChatState extends State<SectionStreamChat> {
                         '${chats.last.parts!.last.text}${value.output}';
                   } else {
                     chats.add(Content(
-                        role: 'Lojisyel', parts: [Parts(text: value.output)]));
+                        role: 'model', parts: [Parts(text: value.output)]));
                   }
                 });
               });
@@ -94,7 +94,7 @@ class _SectionStreamChatState extends State<SectionStreamChat> {
       padding: const EdgeInsets.all(8.0),
       child: Card(
         elevation: 0,
-        color: content.role == 'Lojisyel'
+        color: content.role == 'model'
             ? const Color(0xff6096ba).withAlpha(250)
             : const Color(0xff829cbc),
         child: Padding(
@@ -110,7 +110,7 @@ class _SectionStreamChatState extends State<SectionStreamChat> {
                   const SizedBox(
                     width: 5,
                   ),
-                  Text(content.role ?? 'role'),
+                  Text(content.role =="model"? "Lojisyel":"User"),
                 ],
               ),
               Markdown(
